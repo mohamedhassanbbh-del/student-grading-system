@@ -1,0 +1,35 @@
+﻿<%- include("partials/header", { title: "Faculty Dashboard", user }) %>
+
+<h2 class="mt-4">Faculty Dashboard</h2>
+<p>Welcome <strong><%= user.username %></strong>! You can view and grade students below.</p>
+
+<div class="card mt-3 p-3">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Marks</th>
+        <th>Grade</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% students.forEach(s => { %>
+      <tr>
+        <td><%= s.name %></td>
+        <td><%= s.marks %></td>
+        <td><%= s.grade %></td>
+        <td>
+          <form method="POST" action="/grade" class="d-flex">
+            <input type="hidden" name="id" value="<%= s.id %>">
+            <input class="form-control me-2" type="number" name="marks" placeholder="Enter new marks" required>
+            <button class="btn btn-primary btn-sm">Update</button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("partials/footer") %>
