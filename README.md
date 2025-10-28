@@ -1,6 +1,6 @@
 # student-grading-system
-a sample student grading website created with node.js and express.js
-you can install the required dependencies using npm commend
+a sample student grading website created with node.js and express.js.
+you can install the required dependencies using npm commend.
 
 
 
